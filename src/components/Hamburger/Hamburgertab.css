@@ -1,0 +1,17 @@
+.square{
+    width: 200px;
+    height: 500px;
+    background-color: lightgray;
+}
+
+.intro {
+    background-color: white;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+h1{
+    font-size: 25px;
+}
