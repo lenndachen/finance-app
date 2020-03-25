@@ -1,0 +1,36 @@
+ul{
+ list-style: none;
+}
+
+.finances-menu{
+
+}
+
+.finances-header{
+    background-color: darkgray;
+    width: 20%;
+    text-align: center;
+    position: absolute;
+    right: 35%;
+    /* justify-content: center; */
+    display: block;
+
+}
+
+.finances-column-1 {
+    /* float: left; */
+    position: absolute;
+    left: 43%;
+    bottom: 64%;
+    background-color: darkgray;
+    padding-right: 5%;
+}
+
+.finances-column-2 {
+    /* float: left; */
+    position: absolute;
+    left: 55%;
+    bottom: 64%;
+    background-color: darkgray;
+    padding-right: 5%;
+}

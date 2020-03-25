@@ -1,7 +1,13 @@
 .square{
     width: 200px;
     height: 500px;
-    background-color: lightgray;
+    margin: auto;
+    float: left;
+    background-color: lightgray; 
+    position: absolute;
+    left: 0%;
+    top: 12%;
+
 }
 
 .intro {

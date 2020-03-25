@@ -1,10 +1,11 @@
 .header{
-    background: lightsalmon;
+    background-image: linear-gradient(white, black);;
     padding-top: 10px;
     padding-left: 11px;
     margin: -8px;
     FONT-WEIGHT: 800;
     height: 80px;
+    color: white;
 }
 
 

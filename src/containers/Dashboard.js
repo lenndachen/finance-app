@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import Header from '../components/Header/Header.js';
 import Hamburgertab from '../components/Hamburger/index';
 
-class Home extends Component{
+class Dashboard extends Component{
     render(){
         return(
             <div>
@@ -14,4 +14,4 @@ class Home extends Component{
     }
 }
 
-export default Home;
+export default Dashboard;

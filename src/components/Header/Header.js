@@ -12,9 +12,9 @@ const Header = () =>{
                 <p className="logo-name">Bloom</p>
             </div>
             <div className="nav-bar">
-                <p className="nav-bar item-1">Enter Data</p>
-                <p className="nav-bar item-1"> View all Transactions</p>
-                <p className="nav-bar item-1">Sign In</p>
+                <p className="nav-bar item-1"> Enter Data </p>
+                <p className="nav-bar item-1"> View all Transactions </p>
+                <p className="nav-bar item-1"> Sign In </p>
             </div>
         </div>
     )
