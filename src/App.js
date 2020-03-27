@@ -6,7 +6,7 @@ import {
   Route
 } from 'react-router-dom';
 
-import Dashboard from './containers/Dashboard';
+import Dashboard from './containers/Dashboard/Dashboard';
 import Finances from './containers/Finances/Finances';
 //Using React router to route pages
 const App = () => {
