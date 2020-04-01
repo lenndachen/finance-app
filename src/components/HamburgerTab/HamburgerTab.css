@@ -21,3 +21,9 @@
 h1{
     font-size: 25px;
 }
+
+a:-webkit-any-link {
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+}

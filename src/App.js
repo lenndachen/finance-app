@@ -8,6 +8,8 @@ import {
 
 import Dashboard from './containers/Dashboard/Dashboard';
 import Finances from './containers/Finances/Finances';
+import Budget from "./containers/Budget/Budget";
+import EnterData from "./containers/EnterData/EnterData";
 //Using React router to route pages
 const App = () => {
   return(
@@ -15,6 +17,8 @@ const App = () => {
     <div className="App">
       <Route exact path="/" component={Dashboard} />
       <Route path="/finances" component={Finances} />
+      <Route path="/budget" component={Budget} />
+      <Route path="/enterdata" component={EnterData} />
     </div>
   </BrowserRouter>
   )

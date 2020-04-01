@@ -1,8 +1,16 @@
 .dashboard-title {
   background: darkgray;
   width: 20%;
-  margin: auto;
+  /* margin: auto; */
   margin-bottom: -4%;
+  position: absolute;
+  /* text-align: center; */
+  left: 41%;
+  top: 12%;
+}
+
+.dashboard-h2{
+  margin: 10px;
 }
 
 .all-charts{
@@ -12,7 +20,13 @@
   width: 720px;
   height: 400px;
 } 
- 
+.monthly{
+  position: absolute;
+  left: 29%;
+  bottom: 63%;
+  color: blue;
+}
+
 .pie{
     width: 15%;
     height: 24%;
@@ -41,20 +55,21 @@
   bottom:20%;
 }
 
-.chart{
+.chart {
   position: relative;
-  width: 300px; 
+  width: 245px;
   height: 200px;
   top: 10px;
 }
 
-.graph{
-  width: 32%;
-  height: 40%;
+.graph {
+  width: 56%;
+  height: 56%;
   position: absolute;
-  border-left: 2px solid blue;
-  border-bottom: 2px solid blue;
-  left: 5%;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+  left: 11%;
+  bottom: 61%;
 }
 
 .graph:after{
@@ -64,7 +79,7 @@
   bottom: -25px;
   margin: auto;
   left: 0 ;
-  color: orange;
+  color: blue;
   right: 0;
 }
 
@@ -73,13 +88,13 @@
   position: absolute;
   bottom:50%;
   left: -64px;
-  color: pink;
+  color: blue;
   transform:  rotate(-90deg);
 }
 .week-1{
   height: 80%;
   width: calc(100%/8);
-  background: green;
+  background: orange;
   position: absolute;
   bottom: 0;
   left: 10%;
@@ -112,7 +127,7 @@
 }.week-3{
   height: 45%;
   width: calc(100%/8);
-  background: green;
+  background: lightblue;
   position: absolute;
   bottom: 0;
   left: 50%;

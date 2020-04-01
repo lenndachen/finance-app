@@ -7,10 +7,13 @@ export default class DashboardTab extends Component{
         return(
             <div className="dashboard">
                 <div className="dashboard-title">
-                    <h2>Dashboard</h2>
+                    <h2 className="dashboard-h2">Dashboard</h2>
                 </div>
                 <div className="all-charts">
-                    <div className="pie">       
+                    <div>
+                    <p className="monthly">Monthly Expenses</p>
+                    <div className="pie"> 
+                    </div>
                     </div>
                     <div className="all-four">
                         <div className="chart">

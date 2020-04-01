@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import "../Finances/Finances.css"
 
 import FinancesTab from "../../components/FinancesTab/FinancesTab";
-import Hamburgertab from '../../components/Hamburger';
-import Header from "../../components/Header/Header";
+import Hamburgertab from '../../components/HamburgerTab';
+import Header from "../../components/HeaderComponent/Header";
 
 class Finances extends Component{
     
