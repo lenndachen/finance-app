@@ -50,6 +50,7 @@
 .all-four {
   display: flex;
   flex-flow: wrap;
+  width: 46%;
   position: absolute;
   left: 46%;
   bottom:20%;
