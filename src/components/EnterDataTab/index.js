@@ -25,8 +25,16 @@ handleSubmit = () => {
         const purchase = {price, date, category}
         console.log("purchase", purchase);
     this.props.submitButton(purchase)
+    this.defaultState()
 }
 
+defaultState = () => {
+    this.setState({
+    price: " ",
+    date: "yyyy-MM-dd",
+    category: "",
+    }) 
+}
 
 
     render(){
@@ -39,14 +47,16 @@ handleSubmit = () => {
                     <input type="price" pattern="[0-9]*" name="price" value={this.state.price} onChange={this.updateUserInput}/>
                     <input type="date" name="date" value={this.state.date} onChange={this.updateUserInput}/>
                     <select type="text" name="category" value={this.state.category} onChange={this.updateUserInput}>
+                        <option type="text" name="category" value="food">Category</option>
                         <option type="text" name="category" value="food">Eating Out</option>
                         <option type="text" name="category" value="gas">Gas</option>
                         <option type="text" name="category" value="entertainment">Entertainment</option>
                         <option type="text" name="category" value="grocery">Grocery's</option>
                         <option type="text" name="category" value="other">Other</option>
                     </select>
-                    <button type="button" onClick={this.handleSubmit}>Submit</button>
+                    <button type="submit" onClick={this.handleSubmit}>Submit</button>
                 </form>
+                
             </div>
         )
     }

@@ -25,30 +25,6 @@ class EnterData extends Component{
     console.log("array", array)
     }
 
-    // useEffect = (e) => {
-    //     const value = e.target.value;
-    //     const timeout = setTimeout(() => {
-    //       this.setOutput(value);
-    //     }, 200);
-    //     return () => {
-    //       clearTimeout(timeout);
-    //     };
-    //   }
-
-    // setOutput = () => {
-    //    const array = this.state.allExpenses;
-    //    console.log("array", array)
-    // }
-      
-    // submitItems = () => {
-    //     const count = (this.state.array(0))
-    //     const count2 = (this.state.array[1])
-    //     const count3 = (this.state.array[2])
-    //     const count4 = [{...count, ...count2, ...count3}]
-    //     const count5 = count4.push(this.state.allExpenses)
-    //     console.log("count 5", count5)
-    // }
-
     submitInput = () => {
         return(
             <input type="button" value="Submit" name="submit" onClick={this.handleSubmit}/>
@@ -68,10 +44,8 @@ class EnterData extends Component{
                 <div>
                     <EnterDataTab submitButton={this.handleSubmit}/>
                 </div>
-                {/* submitItemCount={this.submitItems()}  */}
-                {/* delayedUpdate={this.useEffect} */}
                 <div>
-                    {/* <SearchForm onSearch={this.performSearch} />   */}
+                    {this.state.array}
                 </div>
             
             </div>
