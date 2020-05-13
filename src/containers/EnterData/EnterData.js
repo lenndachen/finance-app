@@ -45,21 +45,21 @@ class EnterData extends Component{
     handleEdit = (purchase) => {
         var allExpenses = this.state.allExpenses;
         console.log("purchase, and all expenses", purchase, allExpenses)
+    }
         // pluck out item that matches the item ID
-        // map through expenses and match the expense that has the same id as purchase id
-        // filter, splice* find location, remove the item from array from all expenses that matches
-        const result = allExpenses.filter(purchase => purchase !== allExpenses)
-        // allExpenses.pop()
-        allExpenses.push(purchase)
-        console.log("result", result)
-        console.log("all Expenses", allExpenses)
-    }
+    // map through expenses and match the expense that has the same id as purchase id
+    // filter, splice* find location, remove the item from array from all expenses that matches
+    // const result = allExpenses.filter(purchase => purchase !== allExpenses)
+    // // allExpenses.pop()
+    // allExpenses.push(purchase)
+    // console.log("result", result)
+    // console.log("all Expenses", allExpenses)
 
-    onEdit = () => {
-        var expenses = this.state.allExpenses;
-        expenses.pop()
-        console.log("expenses",expenses)
-    }
+    // onEdit = () => {
+    //     var expenses = this.state.allExpenses;
+    //     expenses.pop()
+    //     console.log("expenses",expenses)
+    // }
 
     render(){
         console.log("purchase", this.state.allExpenses)
@@ -80,8 +80,11 @@ class EnterData extends Component{
                     {/* Put edit button inside <p> tag which makes it render each time  */}
                     {data && data.map((d, uniqueId) => 
                     <ExpenseItem 
-                    item={d} keyItem={uniqueId} handleEdit={this.handleEdit} allExpenses={this.state.allExpenses}
-                    onEdit = {this.onEdit}
+                        item={d} 
+                        keyItem={uniqueId} 
+                        handleEdit={this.handleEdit} 
+                        allExpenses={this.state.allExpenses}
+                    // onEdit = {this.onEdit}
                     />
                    )}
                     {/* Got Grand Total to print on Screen */}
@@ -94,24 +97,3 @@ class EnterData extends Component{
 }
 
 export default EnterData;
-
-////////// //Initailize array of objects.
-// Code shows how to edit expense
-// let myArray = [
-//     {id: 0, name: "Jhon"},
-//     {id: 1, name: "Sara"},
-//     {id: 2, name: "Domnic"},
-//     {id: 3, name: "Bravo"}
-//   ],
-      
-//   //Find index of specific object using findIndex method.    
-//   objIndex = myArray.findIndex((obj => obj.id == 1));
-  
-//   //Log object to Console.
-//   console.log("Before update: ", myArray[objIndex])
-  
-//   //Update object's name property.
-//   myArray[objIndex].name = "Laila"
-  
-//   //Log object to console again.
-//   console.log("After update: ", myArray[objIndex])

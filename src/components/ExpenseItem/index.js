@@ -47,6 +47,7 @@ class ExpenseItem extends Component{
     render(){
         return(
             <div className="item-container" key={this.props.uniqueId}>
+                {/* Toggle do this if !to editing and if else do this, makes the edit show up and text input and then on submit makes the code change*/}
                {!this.state.editing ? 
                 <div>
                     <div>category: {this.state.category}</div>
@@ -68,7 +69,7 @@ class ExpenseItem extends Component{
                     </select>
                     <input type="date" name="date" value={this.state.date} onChange={this.updateUserInput}/>
                     <input type="price" pattern="[0-9]*" name="price" value={this.state.price} onChange={this.updateUserInput}/>
-                    <button type="submit" onClick={() => this.handleSubmit}>Submit</button>
+                    <button type="submit" onClick={() => this.toggleSaveState()}>Submit</button>
                 </form>
                 </div>
                }
