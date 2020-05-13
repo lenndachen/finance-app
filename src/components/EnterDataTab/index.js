@@ -10,6 +10,7 @@ export default class EnterDataTab extends Component{
         date: "yyyy-MM-dd",
         category: " ", 
         list: " ",
+        edit: false,
     }
 }
 
@@ -22,11 +23,20 @@ updateUserInput = (e) =>{
  }
 
 handleSubmit = () => {
-        const { price, date, category} = this.state;
-        const purchase = {price, date, category}
+        const { price, date, category} = this.state;  
+        const purchase = {price, date, category} 
         console.log("purchase", purchase);
     this.props.submitButton(purchase)
     this.defaultState()
+
+}
+
+editExpense = () => {
+    const edit = this.state;
+    this.setState({
+        price:<input type="text"></input>
+    })
+    this.props.priceEdit(edit)
 }
 
 defaultState = () => {
@@ -36,6 +46,8 @@ defaultState = () => {
     category: "",
     }) 
 }
+
+
 
 //  renderList = (list) => {
 //     list.array.map((item) => (
@@ -57,7 +69,7 @@ defaultState = () => {
             <div>
                 {/* form userinputs items 
                 onSubmit={this.props.submitItemCount} */}
-                <form className="inputs">
+                <form className="inputs" >
                     {/* this.props.delayedOutput */}
                     <select type="text" name="category" value={this.state.category} onChange={this.updateUserInput}>
                         <option type="text" name="category" value="food">Category</option>
