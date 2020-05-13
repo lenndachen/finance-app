@@ -39,7 +39,7 @@ class ExpenseItem extends Component{
         const purchase = {price, date, category, itemId} 
         console.log("purchase", purchase);
     this.props.handleEdit(purchase)
-    this.toggleEditState()
+    this.toggleSaveState()
     }
     
     // this.props.handleEdit(this.props.item)
@@ -69,7 +69,7 @@ class ExpenseItem extends Component{
                     </select>
                     <input type="date" name="date" value={this.state.date} onChange={this.updateUserInput}/>
                     <input type="price" pattern="[0-9]*" name="price" value={this.state.price} onChange={this.updateUserInput}/>
-                    <button type="submit" onClick={() => this.toggleSaveState()}>Submit</button>
+                    <button type="submit" onClick={() => this.handleSubmit()}>Submit</button>
                 </form>
                 </div>
                }

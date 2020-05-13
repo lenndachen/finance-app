@@ -7,6 +7,7 @@ import ExpenseItem from "../../components/ExpenseItem/index"
 // import SearchForm from '../../components/SearchForm/index.js';
 
 import "./EnterData.css";
+const CATEGORIES = ['Food', 'Entertainment']
 class EnterData extends Component{
     constructor(props){
         super(props);
@@ -16,7 +17,19 @@ class EnterData extends Component{
                 eachExpense: {},
                 totalPrice: [],
                 edit: false,
+                filterExpense: [],
+                activeFilter: "",
         }
+    }
+
+    filterExpenses = () => {
+        var allExpenses = this.state.allExpenses;
+        const filteredExpenses = allExpenses.filter(expense => expense.category === this.state.activeFilter)
+        this.setState({
+            filterExpense: filteredExpenses,
+        },() => { 
+            this.calculateExpenses()
+        } )
     }
 
     // Submit function 
@@ -27,15 +40,20 @@ class EnterData extends Component{
         array.push(purchase)
         // + and + make addition work, array.reduce makes the adding possible, accum/item are variables
         // Finished adding but want to render amount on page now
-          var totalPrice = array.reduce((accum,item) => +accum + +item.price, 0)
           this.setState({
             allExpenses: array,
-            totalPrice: totalPrice,
+            filterExpense: this.state.allExpenses,
         })
     console.log("array", array)
-    console.log("total", totalPrice)
+        this.calculateExpenses()
     }
 
+    calculateExpenses = () => {
+        var totalPrice = this.state.allExpenses.reduce((accum,item) => +accum + +item.price, 0)
+        this.setState({
+            totalPrice: totalPrice,
+        })
+    }
     submitInput = () => {
         return(
             <input type="button" value="Submit" name="submit" onClick={this.handleSubmit}/>
@@ -45,8 +63,16 @@ class EnterData extends Component{
     handleEdit = (purchase) => {
         var allExpenses = this.state.allExpenses;
         console.log("purchase, and all expenses", purchase, allExpenses)
+        const spliceExpenses = allExpenses.filter(expense => expense.itemId !== purchase.itemId)
+        console.log("spliceExpenses", spliceExpenses)
+        spliceExpenses.push(purchase)
+        this.setState({
+            allExpenses: spliceExpenses,
+        },() => { 
+            this.calculateExpenses()
+        } )
     }
-        // pluck out item that matches the item ID
+    // pluck out item that matches the item ID
     // map through expenses and match the expense that has the same id as purchase id
     // filter, splice* find location, remove the item from array from all expenses that matches
     // const result = allExpenses.filter(purchase => purchase !== allExpenses)
@@ -63,9 +89,10 @@ class EnterData extends Component{
 
     render(){
         console.log("purchase", this.state.allExpenses)
-        const data = this.state.allExpenses;
+        const data = this.state.filterExpense;
         //adds the total price of everything
         const totalItemsPrice = this.state.totalPrice;
+        const filterButtons = CATEGORIES.map(category => <div>{category}</div>) 
         return(
             <div>
                 <Header />
@@ -74,7 +101,11 @@ class EnterData extends Component{
 
                 </div>
                 <div>
-                    <EnterDataTab submitButton={this.handleSubmit} array = {this.state.array} />                
+                    <EnterDataTab submitButton={this.handleSubmit} array = {this.state.array} /> 
+                <div className="filters">
+                    {/* onclick */}
+                    {filterButtons}    
+                </div>               
                 <div className="showing-data">
                     {/* Renders data from state, is in console too */}
                     {/* Put edit button inside <p> tag which makes it render each time  */}
@@ -93,6 +124,7 @@ class EnterData extends Component{
                 </div>
             </div>
         )
+
     }
 }
 
