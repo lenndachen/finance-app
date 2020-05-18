@@ -41,8 +41,6 @@ class ExpenseItem extends Component{
     this.props.handleEdit(purchase)
     this.toggleSaveState()
     }
-    
-    // this.props.handleEdit(this.props.item)
 
     render(){
         return(
@@ -54,6 +52,7 @@ class ExpenseItem extends Component{
                     <div>date: {this.state.date}</div>
                     <div>price: {this.state.price}</div>
                     <div onClick={() => this.toggleEditState()} type="edit">edit</div>
+                    <div onClick={() => this.props.deleteExpense(this.props.item)} type="delete"> delete </div>
                 </div> 
                 : 
                 <div>              
