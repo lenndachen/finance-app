@@ -16,10 +16,12 @@
 .finances-column-1 {
     /* float: left; */
     position: absolute;
-    left: 43%;
-    bottom: 26%;
+    left: 27%;
+    bottom: 23%;
     background-color: darkgray;
-    padding-right: 5%;
+    padding-right: 54%;
+    padding-top: 35%;
+    z-index: -1;
 }
 
 .finances-column-2 {
@@ -46,3 +48,11 @@ li {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
+
+.finances-menu{
+    background: darkgray;
+    margin-top: 8%;
+    margin-left: 25%;
+    width: 720px;
+    height: 400px;
+  } 

@@ -37,17 +37,17 @@ class ExpenseItem extends Component{
         const { price, date, category} = this.state;
         const itemId = this.props.item.itemId;
         const purchase = {price, date, category, itemId} 
-        console.log("purchase", purchase);
+        console.log("purchase2", purchase);
     this.props.handleEdit(purchase)
     this.toggleSaveState()
     }
 
     render(){
         return(
-            <div className="item-container" key={this.props.uniqueId}>
+            <div className="tainer" key={this.props.uniqueId}>
                 {/* Toggle do this if !to editing and if else do this, makes the edit show up and text input and then on submit makes the code change*/}
                {!this.state.editing ? 
-                <div>
+                <div className="editingFalse"> 
                     <div>category: {this.state.category}</div>
                     <div>date: {this.state.date}</div>
                     <div>price: {this.state.price}</div>
@@ -55,7 +55,7 @@ class ExpenseItem extends Component{
                     <div onClick={() => this.props.deleteExpense(this.props.item)} type="delete"> delete </div>
                 </div> 
                 : 
-                <div>              
+                <div className="editingTrue">              
                     <form className="inputs" >
                     {/* this.props.delayedOutput */}
                     <select type="text" name="category" value={this.state.category} onChange={this.updateUserInput}>

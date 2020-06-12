@@ -1,5 +1,15 @@
 .inputs{
     position: absolute;
-    left: 34%;
-    bottom: 69%;
+    left: 36%;
+    bottom: 70%;
 }
+
+.tainer{
+    background: white;
+    position: relative;
+    left: -74%;
+    display: flex;
+}
+
+
+

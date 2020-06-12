@@ -25,7 +25,7 @@ updateUserInput = (e) =>{
 handleSubmit = () => {
         const { price, date, category} = this.state;  
         const purchase = {price, date, category} 
-        console.log("purchase", purchase);
+        console.log("purchase3", purchase);
     this.props.submitButton(purchase)
     this.defaultState()
 

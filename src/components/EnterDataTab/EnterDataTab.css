@@ -3,3 +3,9 @@
     left: 34%;
     bottom: 69%;
 }
+
+.totalPrice {
+    position: absolute;
+    top: 33%;
+    right: 12%;
+}

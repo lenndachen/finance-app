@@ -7,7 +7,7 @@ import ExpenseItem from "../../components/ExpenseItem/index"
 // import SearchForm from '../../components/SearchForm/index.js';
 
 import "./EnterData.css";
-// const CATEGORIES = ['Food', 'Entertainment']
+const CATEGORIES = ['Eating Out', 'Gas', 'Entertainment',  "Grocery's", 'Other', 'All']
 class EnterData extends Component{
     constructor(props){
         super(props);
@@ -19,22 +19,51 @@ class EnterData extends Component{
                 edit: false,
                 filteredExpenses: [],
                 activeFilter: "",
+                filtered: true,
+                filteredPrice: [],
         }
     }
 
-    // filterExpenses = () => {
-    //     var allExpenses = this.state.allExpenses;
-    //     const filteredExpenses = allExpenses.filter(expense => expense.category === this.state.activeFilter)
-    //     this.setState({
-    //         filterExpense: filteredExpenses,
-    //     },() => { 
-    //         this.calculateExpenses()
-    //     } )
-    // }
+    toggleFilterState = () => {
+        this.setState({
+            filtered: true,
+        })
+    }
+
+    toggleFilterSaveState = () => {
+        this.setState({
+            filtered: !this.state.filtered,
+        })
+    }
+
+    filterExpenses = (category) => {
+        this.toggleFilterSaveState()
+        console.log("this.state.filtered", this.state.filtered)
+        var allExpenses = this.state.allExpenses;
+        // var filteredExpenses = this.state.filteredExpenses
+        console.log("category", category) 
+        if(category.toLowerCase() === "all"){
+             this.setState({
+                 filteredExpenses: allExpenses,
+             })
+            console.log("this.state.filtered", this.state.filtered)
+            this.calculateExpenses()
+        } else {
+        this.toggleFilterState()
+        console.log("this.state.filtered", this.state.filtered)
+        const filteringExpenses = allExpenses.filter(expense => expense.category.toLowerCase() === category.toLowerCase()) 
+        this.setState({
+            filteredExpenses: filteringExpenses,
+        },() => { 
+            this.calculateFilteredExpenses()
+        }
+         )}
+    }
 
     // Submit function 
     handleSubmit = (purchase) => {  
         console.log("purchase 3", purchase)
+        // is line 64 needed and why
         purchase.itemId = this.state.allExpenses.length + 1;
         const array = this.state.allExpenses;
         array.push(purchase)
@@ -54,6 +83,15 @@ class EnterData extends Component{
             totalPrice: totalPrice,
         })
     }
+
+    calculateFilteredExpenses = () => {
+        console.log("filterExpenses at calculateFilteredExpense", this.state.filterExpenses)
+        var filteredPrice = this.state.filteredExpenses.reduce((accum,item) => +accum + +item.price, 0)
+        this.setState({
+            totalPrice: filteredPrice,
+        })
+    }
+
     submitInput = () => {
         return(
             <input type="button" value="Submit" name="submit" onClick={this.handleSubmit}/>
@@ -85,41 +123,36 @@ class EnterData extends Component{
         } )
 }
 
-    // pluck out item that matches the item ID
-    // map through expenses and match the expense that has the same id as purchase id
-    // filter, splice* find location, remove the item from array from all expenses that matches
-    // const result = allExpenses.filter(purchase => purchase !== allExpenses)
-    // // allExpenses.pop()
-    // allExpenses.push(purchase)
-    // console.log("result", result)
-    // console.log("all Expenses", allExpenses)
-
-    // onEdit = () => {
-    //     var expenses = this.state.allExpenses;
-    //     expenses.pop()
-    //     console.log("expenses",expenses)
-    // }
+// this.toggleFilterState();
 
     render(){
         console.log("purchase", this.state.filteredExpenses)
         const data = this.state.filteredExpenses;
         //adds the total price of everything
         const totalItemsPrice = this.state.totalPrice;
-        // const filterButtons = CATEGORIES.map(category => <div>{category}</div>) 
+        const totalFilteredPrice = this.state.totalPrice;
+        const filterButtons = CATEGORIES.map(category => <div>{category} <button onClick= {() => this.filterExpenses(category)}>Click
+        </button></div>) 
         return(
             <div>
                 <Header />
                 <HamburgerTab/>
                 <div>
-
-                </div>
-                <div>
-                    <EnterDataTab submitButton={this.handleSubmit} array = {this.state.array} /> 
-                <div className="filters">
-                    {/* onclick */}
-                    {/* {filterButtons}     */}
-                </div>               
-                <div className="showing-data">
+                    <div className="filters">{filterButtons}</div> 
+                    <EnterDataTab submitButton={this.handleSubmit}/> 
+                <div className="finances-column-1">
+                <ul className="purchase-date">
+                    {/* Got Grand Total to print on Screen */}
+                    <div className="totalPrice">
+                    {!this.state.filtered ?
+                    <div> Grand Total: {totalItemsPrice} </div>
+                    :
+                    <div> Grand Total: {totalFilteredPrice} </div>
+                    }
+                    {console.log("totalFilteredPrice", totalFilteredPrice)}
+                    {console.log("totalItemsPrice", totalItemsPrice)}
+                    </div>
+                    <div className="showing-data">
                     {/* Renders data from state, is in console too */}
                     {/* Put edit button inside <p> tag which makes it render each time  */}
                     {data && data.map((d, uniqueId) => 
@@ -130,11 +163,10 @@ class EnterData extends Component{
                         allExpenses={this.state.allExpenses}
                         deleteExpense={this.deleteExpense} 
                         id={d.purchased}
-                    // onEdit = {this.onEdit}
                     />
                    )}
-                    {/* Got Grand Total to print on Screen */}
-                    Grand Total: {totalItemsPrice}
+                </div>
+                </ul>
                 </div>
                 </div>
             </div>
