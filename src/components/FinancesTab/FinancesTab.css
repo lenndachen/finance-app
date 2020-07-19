@@ -14,14 +14,13 @@
 }
 
 .finances-column-1 {
-    /* float: left; */
     position: absolute;
-    left: 27%;
-    bottom: 23%;
+    left: 24%;
+    bottom: 10%;
     background-color: darkgray;
-    padding-right: 54%;
-    padding-top: 35%;
     z-index: -1;
+    width: 800px;
+    height: 600px;
 }
 
 .finances-column-2 {
@@ -36,7 +35,8 @@
 ul{
     list-style: none;
     width: 100%;
-    padding: 20%;
+    padding: 21%;
+    overflow: hidden;
 }
 
 li {

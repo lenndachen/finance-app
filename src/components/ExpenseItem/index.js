@@ -48,10 +48,10 @@ class ExpenseItem extends Component{
                 {/* Toggle do this if !to editing and if else do this, makes the edit show up and text input and then on submit makes the code change*/}
                {!this.state.editing ? 
                 <div className="editingFalse"> 
-                    <div>category: {this.state.category}</div>
-                    <div>date: {this.state.date}</div>
-                    <div>price: {this.state.price}</div>
-                    <div onClick={() => this.toggleEditState()} type="edit">edit</div>
+                    <div>category: {this.state.category}</div> {'\u00A0'}
+                    <div>date: {this.state.date}</div> {'\u00A0'}
+                    <div>price: {this.state.price}</div> {'\u00A0'}
+                    <div onClick={() => this.toggleEditState()} type="edit">edit</div> {'\u00A0'}
                     <div onClick={() => this.props.deleteExpense(this.props.item)} type="delete"> delete </div>
                 </div> 
                 : 

@@ -7,8 +7,17 @@
 .tainer{
     background: white;
     position: relative;
-    left: -74%;
+    width: 100%;
+    border: gray solid 3px;
+}
+
+.editingTrue{
+    display: grid;
+}
+
+.editingFalse {
     display: flex;
+    justify-content: space-between;
 }
 
 
